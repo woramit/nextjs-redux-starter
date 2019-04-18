@@ -46,6 +46,9 @@ SearchRepoContainer.propTypes = {
 }
 
 export { SearchRepoContainer }
-export default connect(mapStateToProps, {
-  getTopRepos
-})(SearchRepoContainer)
+export default connect(
+  mapStateToProps,
+  {
+    getTopRepos
+  }
+)(SearchRepoContainer)
