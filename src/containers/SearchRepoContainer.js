@@ -1,10 +1,10 @@
-import React, { Component, Fragment } from 'react'
-import PropTypes from 'prop-types'
-import { Map } from 'immutable'
-import { connect } from 'react-redux'
-
 import { getTopRepos } from 'actions/repos'
 import SearchResults from 'components/SearchResults'
+import { Map } from 'immutable'
+import PropTypes from 'prop-types'
+import React, { Component, Fragment } from 'react'
+import { Helmet } from 'react-helmet'
+import { connect } from 'react-redux'
 
 class SearchRepoContainer extends Component {
   static async getInitialProps({ store, query }) {
