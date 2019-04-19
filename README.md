@@ -1,3 +1,7 @@
+forked from [CodementorIO/nextjs-redux-starter](https://github.com/CodementorIO/nextjs-redux-starter)
+
+Implement with [material-ui.com](https://material-ui.com)
+
 # Next.js redux starter
 An opinionated Next.js starter kit with Express, Redux, SASS, and Jest.
 
