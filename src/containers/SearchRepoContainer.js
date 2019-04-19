@@ -33,6 +33,7 @@ class SearchRepoContainer extends Component {
   }
 
   _goToAbout = () => {
+    console.log(this.props)
     this.props.router.push('/about')
   }
 }

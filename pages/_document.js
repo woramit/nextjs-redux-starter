@@ -89,39 +89,38 @@ class MyDocument extends Document {
       .map(el => this.props.helmet[el].toComponent())
   }
 
-  get helmetJsx() {
-    const { pageContext } = this.props
-    let title = 'Hello next.js Real World!'
-    return (
-      <Helmet>
-        <title>{title}</title>
-        <meta property="og:title" content={title} />
-        <meta charSet="utf-8" />
-        {/* Use minimum-scale=1 to enable GPU rasterization */}
-        <meta
-          name="viewport"
-          content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
-        />
-        {/* PWA primary color */}
-        <meta
-          name="theme-color"
-          content={pageContext ? pageContext.theme.palette.primary.main : null}
-        />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
-        />
-      </Helmet>
-    )
-  }
+  // get helmetJsx() {
+  //   const { pageContext } = this.props
+  //   let title = 'Hello next.js Real World!'
+  //   return (
+  //     <Helmet>
+  //       <title>{title}</title>
+  //       <meta property="og:title" content={title} />
+  //       <meta charSet="utf-8" />
+  //       {/* Use minimum-scale=1 to enable GPU rasterization */}
+  //       <meta
+  //         name="viewport"
+  //         content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
+  //       />
+  //       {/* PWA primary color */}
+  //       <meta
+  //         name="theme-color"
+  //         content={pageContext ? pageContext.theme.palette.primary.main : null}
+  //       />
+  //       <link
+  //         rel="stylesheet"
+  //         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
+  //       />
+  //     </Helmet>
+  //   )
+  // }
 
   render() {
-    const { pageContext } = this.props
     return (
       <html {...this.helmetHtmlAttrComponents}>
         {/* <html> */}
         <Head>
-          {this.helmetJsx}
+          {/* {this.helmetJsx} */}
           {this.helmetHeadComponents}
         </Head>
         {/* <body> */}

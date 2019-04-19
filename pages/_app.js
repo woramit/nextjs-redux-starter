@@ -41,6 +41,8 @@ import { Provider } from 'react-redux'
 import createStore from 'store/createStore'
 import withRedux from 'next-redux-wrapper'
 import Layout from 'components/Layout'
+import Helmet from 'react-helmet'
+import config from 'config'
 
 class MyApp extends App {
   constructor() {
@@ -68,9 +70,41 @@ class MyApp extends App {
     const { Component, pageProps, store, router } = this.props
     return (
       <Container>
-        <Head>
-          <title>My page</title>
-        </Head>
+        {/* <Helmet
+          htmlAttributes={{ lang: 'th' }}
+          title={config.title}
+          meta={[
+            {
+              name: 'viewport',
+              content:
+                'minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no'
+            },
+            { property: 'og:title', content: config.title }
+          ]}
+        /> */}
+        <Helmet htmlAttributes={{ lang: 'th', dir: 'ltr' }}>
+          <title>{config.title}</title>
+          <meta property="og:title" content={config.title} />
+          <meta charSet="utf-8" />
+          {/* Use minimum-scale=1 to enable GPU rasterization */}
+          <meta
+            name="viewport"
+            content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
+          />
+          {/* PWA primary color */}
+          <meta
+            name="theme-color"
+            content={
+              this.pageContext
+                ? this.pageContext.theme.palette.primary.main
+                : null
+            }
+          />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
+          />
+        </Helmet>
         {/* Wrap every page in Jss and Theme providers */}
         <JssProvider
           registry={this.pageContext.sheetsRegistry}
@@ -86,7 +120,11 @@ class MyApp extends App {
               {/* Pass pageContext to the _document though the renderPage enhancer
                 to render collected styles on server-side. */}
               <Layout>
-                <Component pageContext={this.pageContext} {...pageProps} />
+                <Component
+                  router={router}
+                  pageContext={this.pageContext}
+                  {...pageProps}
+                />
               </Layout>
             </Provider>
           </MuiThemeProvider>
