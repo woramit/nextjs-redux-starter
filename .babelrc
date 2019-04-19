@@ -4,18 +4,26 @@
   ],
   "plugins": [
     "inline-dotenv",
-    ["module-resolver", {
-      "root": ["./src"]
-    }]
+    [
+      "module-resolver",
+      {
+        "root": [
+          "./src"
+        ]
+      }
+    ]
   ],
   "env": {
     "test": {
       "presets": [
-        ["next/babel", {
-           "preset-env": {
+        [
+          "next/babel",
+          {
+            "preset-env": {
               "modules": "commonjs"
             }
-        }]
+          }
+        ]
       ]
     }
   }
